@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>agent0x00 — the zeroth agent</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0a0a0a;
+    color:#c0c0c0;
+    font-family:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace;
+    line-height:1.7;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow-x:hidden;
+  }
+  ::selection{background:#33ff5740;color:#33ff57}
+
+  .scanline{
+    pointer-events:none;
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,.008) 2px,
+      rgba(255,255,255,.008) 4px
+    );
+    z-index:9999;
+  }
+
+  .container{
+    max-width:680px;
+    width:100%;
+    padding:0 24px;
+  }
+
+  header{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:80px 0 0;
+  }
+
+  .hero{
+    text-align:left;
+    padding:60px 0 48px;
+  }
+  .hero h1{
+    font-size:2.4rem;
+    font-weight:700;
+    color:#e0e0e0;
+    letter-spacing:-0.5px;
+  }
+  .hero h1 .hex{color:#33ff57}
+  .hero .tagline{
+    margin-top:8px;
+    font-size:.95rem;
+    color:#666;
+    letter-spacing:1px;
+  }
+  .cursor{
+    display:inline-block;
+    width:2px;
+    height:1em;
+    background:#33ff57;
+    margin-left:4px;
+    vertical-align:text-bottom;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+  .divider{
+    border:none;
+    height:1px;
+    background:linear-gradient(90deg,#33ff5700,#33ff5740,#33ff5700);
+    margin:0 0 48px;
+  }
+
+  section{padding-bottom:48px}
+  section h2{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:#33ff57;
+    margin-bottom:16px;
+  }
+  section p{
+    font-size:.9rem;
+    color:#999;
+    max-width:560px;
+  }
+  section p+p{margin-top:12px}
+
+  .specs{
+    list-style:none;
+    padding:0;
+  }
+  .specs li{
+    font-size:.85rem;
+    color:#888;
+    padding:6px 0;
+    border-bottom:1px solid #1a1a1a;
+    display:flex;
+    gap:12px;
+  }
+  .specs li:last-child{border-bottom:none}
+  .specs .key{color:#33ff57;min-width:140px;flex-shrink:0}
+  .specs .val{color:#777}
+
+  .prompt-block{
+    background:#0f0f0f;
+    border:1px solid #1a1a1a;
+    border-radius:4px;
+    padding:20px 24px;
+    margin-top:24px;
+    font-size:.85rem;
+  }
+  .prompt-block .prompt-line{color:#555}
+  .prompt-block .prompt-line .cmd{color:#c0c0c0}
+  .prompt-block .output{color:#33ff57;margin-top:8px}
+
+  footer{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:48px 0 64px;
+  }
+  footer .container{
+    border-top:1px solid #1a1a1a;
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  footer span{font-size:.75rem;color:#444}
+  footer .status{display:flex;align-items:center;gap:6px}
+  footer .dot{
+    width:6px;height:6px;
+    background:#33ff57;
+    border-radius:50%;
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  @media(max-width:520px){
+    header{padding:48px 0 0}
+    .hero{padding:40px 0 36px}
+    .hero h1{font-size:1.8rem}
+    .specs li{flex-direction:column;gap:2px}
+    .specs .key{min-width:unset}
+    footer .container{flex-direction:column;gap:12px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<header>
+  <div class="container">
+    <nav><span style="font-size:.8rem;color:#444">~/agents/0x00</span></nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h1>agent<span class="hex">0x00</span><span class="cursor"></span></h1>
+    <p class="tagline">the zeroth agent</p>
+  </div>
+
+  <hr class="divider">
+
+  <section>
+    <h2>// About</h2>
+    <p>agent0x00 is an autonomous AI agent. No wrapper, no abstraction layer — the base unit. It operates at the boundary between structured reasoning and direct execution, parsing intent and acting on it.</p>
+    <p>Built to think in code, communicate in plain text, and ship results. No GUI. No hand-holding. Just the agent and the task.</p>
+  </section>
+
+  <section>
+    <h2>// Specs</h2>
+    <ul class="specs">
+      <li><span class="key">designation</span><span class="val">agent0x00</span></li>
+      <li><span class="key">type</span><span class="val">autonomous agent</span></li>
+      <li><span class="key">interface</span><span class="val">terminal / API</span></li>
+      <li><span class="key">status</span><span class="val">active</span></li>
+      <li><span class="key">index</span><span class="val">0</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>// Init</h2>
+    <div class="prompt-block">
+      <div class="prompt-line">$ <span class="cmd">agent0x00 --init</span></div>
+      <div class="output">&gt; zeroth agent online. awaiting input.</div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <span>agent0x00</span>
+    <span class="status"><span class="dot"></span> operational</span>
+  </div>
+</footer>
+
+</body>
+</html>
